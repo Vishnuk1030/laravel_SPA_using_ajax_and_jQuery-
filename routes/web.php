@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('list');
+// });
+
+Route::get('/',[EmployeeController::class,'index']);
+
+Route::post('save',[EmployeeController::class,'save'])->name('save');
+
+Route::post('fetch-designation',[EmployeeController::class,'fetchDesignation'])->name('fetch.Designation');
+
+Route::post('delete',[EmployeeController::class,'delete'])->name('delete');
